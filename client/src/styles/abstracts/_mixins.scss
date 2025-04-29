@@ -1,0 +1,49 @@
+// Flexbox mixins
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Media query mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  }
+  @else if $breakpoint == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  }
+  @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  }
+  @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) { @content; }
+  }
+}
+
+// Button mixins
+@mixin button-base {
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-sm;
+  border: none;
+  cursor: pointer;
+  transition: $transition-base;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+}
+
+// Card mixins
+@mixin card {
+  background: white;
+  border-radius: $border-radius-md;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: $spacing-md;
+}
+
+// Truncate text
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+} 

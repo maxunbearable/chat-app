@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+.row {
+  @include flex(row, flex-start, stretch);
+  flex-wrap: wrap;
+  margin: 0 -$spacing-md;
+}
+
+.col {
+  flex: 1;
+  padding: 0 $spacing-md;
+  
+  @for $i from 1 through 12 {
+    &-#{$i} {
+      flex: 0 0 percentage($i / 12);
+      max-width: percentage($i / 12);
+    }
+  }
+}
+
+// Responsive columns
+@each $breakpoint in (sm, md, lg, xl) {
+  @include respond-to($breakpoint) {
+    @for $i from 1 through 12 {
+      .col-#{$breakpoint}-#{$i} {
+        flex: 0 0 percentage($i / 12);
+        max-width: percentage($i / 12);
+      }
+    }
+  }
+} 

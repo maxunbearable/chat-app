@@ -1,0 +1,75 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+
+.button {
+  @include button-base;
+  position: relative;
+
+  &.primary {
+    background-color: $primary-color;
+    color: white;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+
+  &.secondary {
+    background-color: $secondary-color;
+    color: white;
+
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+
+  &.outline {
+    background-color: transparent;
+    border: 2px solid $primary-color;
+    color: $primary-color;
+
+    &:hover {
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+
+  &.small {
+    padding: $spacing-xs $spacing-sm;
+    font-size: 0.875rem;
+  }
+
+  &.large {
+    padding: $spacing-md $spacing-lg;
+    font-size: 1.125rem;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &.loading {
+    cursor: wait;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 50%;
+      left: 50%;
+      margin: -8px 0 0 -8px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+} 

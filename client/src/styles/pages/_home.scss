@@ -1,0 +1,36 @@
+.home {
+  &-container {
+    @include flex(column, flex-start, stretch);
+    min-height: 100vh;
+    padding: $spacing-xl 0;
+  }
+
+  &-header {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+  }
+
+  &-title {
+    font-size: rem(48);
+    margin-bottom: $spacing-md;
+  }
+
+  &-subtitle {
+    font-size: rem(24);
+    color: $secondary-color;
+    margin-bottom: $spacing-lg;
+  }
+
+  &-content {
+    @include flex(row, space-between, flex-start);
+    gap: $spacing-xl;
+    flex-wrap: wrap;
+  }
+
+  &-card {
+    @include card;
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+  }
+} 

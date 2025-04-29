@@ -1,0 +1,31 @@
+// Convert pixel to rem
+@function rem($pixels) {
+  @return ($pixels / 16) + rem;
+}
+
+// Get color with opacity
+@function rgba-color($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+// Z-index management
+$z-layers: (
+  "modal": 1000,
+  "overlay": 900,
+  "dropdown": 800,
+  "header": 700,
+  "footer": 600
+);
+
+@function z($layer) {
+  @return map-get($z-layers, $layer);
+}
+
+// Get color from palette with fallback
+@function color($color-name, $color-variant: null) {
+  @if $color-variant != null {
+    @return map-get(map-get($color-palette, $color-name), $color-variant);
+  } @else {
+    @return map-get($color-palette, $color-name);
+  }
+} 

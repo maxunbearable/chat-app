@@ -1,0 +1,30 @@
+.header {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: z('header');
+
+  &-container {
+    @include flex(row, space-between, center);
+    padding: $spacing-md;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $dark-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &-nav {
+    @include flex(row, flex-end, center);
+    gap: $spacing-md;
+  }
+} 

@@ -1,0 +1,37 @@
+.nav {
+  @include flex(row, space-between, center);
+  padding: $spacing-md;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &-brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $dark-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &-menu {
+    @include flex(row, flex-end, center);
+    gap: $spacing-md;
+  }
+
+  &-link {
+    color: $dark-color;
+    text-decoration: none;
+    transition: $transition-base;
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    &.active {
+      color: $primary-color;
+      font-weight: 500;
+    }
+  }
+} 
